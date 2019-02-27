@@ -7,7 +7,6 @@ function displayError(){
 }
 
 function searchRepositories(){
-  // https://api.github.com/search/repositories?q=tetris
   const search_term = $("#searchTerms").val()
   $.get("https://api.github.com/search/repositories?q=" + search_term, (response) => {
     var output = []
@@ -16,7 +15,6 @@ function searchRepositories(){
     });
     $('#results').html("<ul>" + output.join("") + "</ul>")
   }).fail((error) => {
-    // This is called when an error occurs
     console.log('Something went wrong: ' + error);
     displayError();
   });
